@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://levels/GameOver.tscn" type="PackedScene" id=1]
+[ext_resource path="res://fonts/candles.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://levels/Victory.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="Victory" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="VBoxContainer" parent="CenterContainer" index="0"]
+margin_left = 185.0
+margin_top = 114.0
+margin_right = 839.0
+margin_bottom = 485.0
+
+[node name="Label" parent="CenterContainer/VBoxContainer" index="0"]
+margin_right = 654.0
+text = "You Win!"
+
+[node name="RestartButton" parent="CenterContainer/VBoxContainer" index="1"]
+margin_left = 99.0
+margin_right = 554.0
+rect_min_size = Vector2( 455, 71 )
+
+[node name="Label" parent="CenterContainer/VBoxContainer/RestartButton" index="0"]
+text = " Play Again"
+
+[node name="TimeSpentLabel" type="Label" parent="CenterContainer/VBoxContainer" index="2"]
+margin_top = 243.0
+margin_right = 654.0
+margin_bottom = 305.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Time Spent"
+align = 1
+
+[node name="TimeSpentContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" index="3"]
+margin_top = 309.0
+margin_right = 654.0
+margin_bottom = 371.0
+custom_constants/separation = 48
+alignment = 1
+
+[node name="Minutes" type="Label" parent="CenterContainer/VBoxContainer/TimeSpentContainer" index="0"]
+margin_right = 305.0
+margin_bottom = 62.0
+custom_fonts/font = SubResource( 1 )
+text = "00 minute(s)"
+
+[node name="Seconds" type="Label" parent="CenterContainer/VBoxContainer/TimeSpentContainer" index="1"]
+margin_left = 353.0
+margin_right = 654.0
+margin_bottom = 62.0
+custom_fonts/font = SubResource( 2 )
+text = "00 second(s)"
